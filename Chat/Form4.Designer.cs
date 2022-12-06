@@ -124,7 +124,7 @@ namespace Chat
             this.richTextBox3.Location = new System.Drawing.Point(332, 272);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(239, 96);
+            this.richTextBox3.Size = new System.Drawing.Size(411, 96);
             this.richTextBox3.TabIndex = 17;
             this.richTextBox3.Text = "";
             // 

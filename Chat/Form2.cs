@@ -64,7 +64,7 @@ namespace Chat
             {
                 TDAlg.Key = key;
                 TDAlg.IV = vector;
-
+                richTextBox3.Text = richTextBox3.Text + "TripleDES" + Environment.NewLine;
                 ICryptoTransform decryptor = TDAlg.CreateDecryptor(TDAlg.Key, TDAlg.IV);
                 using (MemoryStream msDecrypt = new MemoryStream(data))
                 {
@@ -72,7 +72,7 @@ namespace Chat
                     {
                         using (StreamReader srDecrypt = new StreamReader(csDecrypt))
                         {
-                            richTextBox3.Text = richTextBox3.Text + BitConverter.ToString(data).Replace("-", String.Empty).ToLower()+Environment.NewLine;
+                            richTextBox3.Text = richTextBox3.Text + BitConverter.ToString(data).Replace("-", String.Empty).ToLower();
                             richTextBox2.Text = srDecrypt.ReadToEnd() + richTextBox2.Text;
                         }
                     }
@@ -150,6 +150,7 @@ namespace Chat
         }
         public void RSAHashDecrypt(byte[][] data, RSAParameters key)
         {
+            richTextBox3.Text = richTextBox3.Text + "RSA" + Environment.NewLine;
             UnicodeEncoding ByteConverter = new UnicodeEncoding();
             RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
             int len = data.Length;
@@ -158,6 +159,7 @@ namespace Chat
             byte[][] output = new byte[len][];
             RSA.ImportParameters(key);
             text_array[0] = RSA.Decrypt(data[0], false);
+            richTextBox3.Text = richTextBox3.Text + BitConverter.ToString(data[0]).Replace("-", String.Empty).ToLower() + Environment.NewLine;
             string txt = "";
             for (int i = 1; i < len; i++)//складываю
             {
@@ -165,7 +167,7 @@ namespace Chat
                 RSA.ImportParameters(key);
                 richTextBox3.Text = richTextBox3.Text+BitConverter.ToString(data[i]);
                 text_array[i] = RSA.Decrypt(data[i], false);
-                
+                richTextBox3.Text = richTextBox3.Text + BitConverter.ToString(data[i]).Replace("-", String.Empty).ToLower() + Environment.NewLine;
                 for (int j = 0; j < text_array[i].Length; j++)
                 {
                     int o = data[i - 1][j];

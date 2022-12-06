@@ -56,7 +56,7 @@ namespace Chat
             {
                 TDAlg.Key = key;
                 TDAlg.IV = vector;
-
+                richTextBox3.Text = richTextBox3.Text + "TripleDES" + Environment.NewLine;
                 ICryptoTransform decryptor = TDAlg.CreateDecryptor(TDAlg.Key, TDAlg.IV);
                 using (MemoryStream msDecrypt = new MemoryStream(data))
                 {
@@ -179,19 +179,21 @@ namespace Chat
         {
             UnicodeEncoding ByteConverter = new UnicodeEncoding();
             RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
-            
+            richTextBox3.Text = richTextBox3.Text + "RSA" + Environment.NewLine;
             int len = data.Length;
             byte[][] text_array = new byte[len][];
             int k = 0;
             byte[][] output = new byte[len][];
             RSA.ImportParameters(key);
             text_array[0] = RSA.Decrypt(data[0], false);
+            richTextBox3.Text=richTextBox3.Text + BitConverter.ToString(data[0]).Replace("-", String.Empty).ToLower() + Environment.NewLine;
             string txt="";
             for (int i = 1; i < len; i++)//складываю
             {
                 text_array[i] = new byte[data[i].Length];
                 RSA.ImportParameters(key);
                 text_array[i] = RSA.Decrypt(data[i], false);
+                richTextBox3.Text = richTextBox3.Text + BitConverter.ToString(data[i]).Replace("-", String.Empty).ToLower() +Environment.NewLine;
                 for (int j = 0; j < text_array[i].Length; j++)
                 {
                     int o = data[i - 1][j];

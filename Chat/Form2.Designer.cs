@@ -37,6 +37,7 @@ namespace Chat
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -113,15 +114,25 @@ namespace Chat
             this.richTextBox3.Location = new System.Drawing.Point(300, 268);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(239, 96);
+            this.richTextBox3.Size = new System.Drawing.Size(431, 96);
             this.richTextBox3.TabIndex = 8;
             this.richTextBox3.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(297, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(215, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Hash, полученного сообщения ";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -148,5 +159,6 @@ namespace Chat
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Label label3;
     }
 }
